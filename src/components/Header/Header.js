@@ -1,6 +1,8 @@
 function Header() {
     return (
-        <header>CV Application</header>
+        <header>
+            <h1>CV Application</h1>
+        </header>
     );
 }
 
