@@ -104,7 +104,7 @@ class WorkInfo extends React.Component {
                             <p>{obj.name}</p>
                             <p>{obj.from}-{obj.to}</p>
                             {/*Line below splits tasks in textarea into list based on newlines */}
-                            <ul className='list-none'>{obj.responsib.split('\n').map((item) => <li key={uniqid()}>{item}</li>)}</ul>
+                            <ul>{obj.responsib.split('\n').map((item) => <li key={uniqid()}>{item}</li>)}</ul>
                         </div>
                     </li>
                 )
@@ -116,22 +116,22 @@ class WorkInfo extends React.Component {
         return(
             <div>
                 <h2>Work Experience</h2>
-                <ul className='list-none'>{itemList}</ul>
+                <ul>{itemList}</ul>
                 <button onClick={this.showForm} ref={this.buttonRef}>Add</button>
                 <form ref={this.formRef} className='hidden' onSubmit={this.handleSubmit}>
-                    <label for='degree'>Title</label>
+                    <label htmlFor='degree'>Title</label>
                     <input type='text' id='degree' onChange={this.handleChangeTitle} value={this.state.title} />
-                    <label for='name'>Company</label>
+                    <label htmlFor='name'>Company</label>
                     <input type='text' id='name' onChange={this.handleChangeName} value={this.state.name} />
-                    <label for='from'>From</label>
+                    <label htmlFor='from'>From</label>
                     <input type='text' id='from' placeholder='YYYY' onChange={this.handleChangeFrom} value={this.state.from} />
-                    <label for='to'>To</label>
+                    <label htmlFor='to'>To</label>
                     <small>Leave blank if ongoing</small>
                     <input type='text' id='to' placeholder='YYYY' onChange={this.handleChangeTo} value={this.state.to} />
-                    <label for='responsib'>Responsibilities</label>
+                    <label htmlFor='responsib'>Responsibilities</label>
                     <textarea id='responsib' onChange={this.handleChangeResponsib} placeholder='A short description of your responsibilties in that position' value={this.state.responsib} />
-                    <button onClick={this.handleCancel}>Cancel</button>
                     <button type='submit'>Add</button>
+                    <button onClick={this.handleCancel}>Cancel</button>
                 </form>
             </div>
         );

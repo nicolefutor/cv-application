@@ -103,20 +103,20 @@ class EducationInfo extends React.Component {
         return(
             <div>
                 <h2>Education</h2>
-                <ul className='list-none'>{itemList}</ul>
+                <ul>{itemList}</ul>
                 <button onClick={this.showForm} ref={this.buttonRef}>Add</button>
                 <form ref={this.formRef} className='hidden' onSubmit={this.handleSubmit}>
-                    <label for='degree'>Degree</label>
+                    <label htmlFor='degree'>Degree</label>
                     <input type='text' id='degree' onChange={this.handleChangeDegree} value={this.state.degree}/>
-                    <label for='name'>School name</label>
+                    <label htmlFor='name'>School name</label>
                     <input type='text' id='name' onChange={this.handleChangeName} value={this.state.name}/>
-                    <label for='from'>From</label>
+                    <label htmlFor='from'>From</label>
                     <input type='text' id='from' placeholder='YYYY' onChange={this.handleChangeFrom} value={this.state.from}/>
-                    <label for='to'>To</label>
+                    <label htmlFor='to'>To</label>
                     <small>Leave blank if ongoing</small>
                     <input type='text' id='to' placeholder='YYYY' onChange={this.handleChangeTo} value={this.state.to}/>
-                    <button onClick={this.handleCancel}>Cancel</button>
                     <button type='submit'>Add</button>
+                    <button onClick={this.handleCancel}>Cancel</button>
                 </form>
             </div>
         );
