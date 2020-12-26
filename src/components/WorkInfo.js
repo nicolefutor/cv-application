@@ -1,25 +1,27 @@
-import './EducationInfo.css'
-import React from 'react'
+import React from 'react';
+import uniqid from 'uniqid';
 
-class EducationInfo extends React.Component {
+class WorkInfo extends React.Component {
     constructor(props) {
         super(props)
 
         this.state = {
             items: [],
-            degree: '',
+            title: '',
             name: '',
             from: '',
-            to: ''
+            to: '',
+            responsib: ''
         };
 
         this.showForm = this.showForm.bind(this);
-        this.handleChangeDegree = this.handleChangeDegree.bind(this);
+        this.handleChangeTitle = this.handleChangeTitle.bind(this);
         this.handleChangeName = this.handleChangeName.bind(this);
         this.handleChangeFrom = this.handleChangeFrom.bind(this);
         this.handleChangeTo = this.handleChangeTo.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChangeResponsib = this.handleChangeResponsib.bind(this);
         this.handleCancel = this.handleCancel.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
 
         this.formRef = React.createRef();
         this.buttonRef = React.createRef();
@@ -36,15 +38,17 @@ class EducationInfo extends React.Component {
         this.buttonRef.current.classList.remove('hidden');
         this.setState({
             items: this.state.items.concat({
-                degree: this.state.degree,
+                title: this.state.title,
                 name: this.state.name,
                 from: this.state.from,
-                to: this.state.to
+                to: this.state.to,
+                responsib: this.state.responsib
             }),
-            degree: '',
+            title: '',
             name: '',
             from: '',
             to: '',
+            responsib: ''
         });
     }
 
@@ -52,16 +56,17 @@ class EducationInfo extends React.Component {
         this.formRef.current.classList.add('hidden');
         this.buttonRef.current.classList.remove('hidden');
         this.setState({
-            degree: '',
+            title: '',
             name: '',
             from: '',
-            to: ''
+            to: '',
+            responsib: ''
         });
     }
 
-    handleChangeDegree(e) {
+    handleChangeTitle(e) {
         this.setState({
-            degree: e.target.value
+            title: e.target.value
         });
     }
 
@@ -83,18 +88,26 @@ class EducationInfo extends React.Component {
         });
     }
 
+    handleChangeResponsib(e) {
+        this.setState({
+            responsib: e.target.value
+        });
+    }
+
     render() {
         const itemList = this.state.items.map((obj) => {
-            if(obj.degree) {
+            if(obj.title) {
                 return (
-                    <li>
+                    <li key={uniqid()}>
                         <div>
-                            <h3>{obj.degree}</h3>
+                            <h3>{obj.title}</h3>
                             <p>{obj.name}</p>
                             <p>{obj.from}-{obj.to}</p>
+                            {/*Line below splits tasks in textarea into list based on newlines */}
+                            <ul className='list-none'>{obj.responsib.split('\n').map((item) => <li key={uniqid()}>{item}</li>)}</ul>
                         </div>
                     </li>
-                );
+                )
             }
             else {
                 return '';
@@ -102,19 +115,21 @@ class EducationInfo extends React.Component {
         })
         return(
             <div>
-                <h2>Education</h2>
-                <ul>{itemList}</ul>
+                <h2>Work Experience</h2>
+                <ul className='list-none'>{itemList}</ul>
                 <button onClick={this.showForm} ref={this.buttonRef}>Add</button>
                 <form ref={this.formRef} className='hidden' onSubmit={this.handleSubmit}>
-                    <label for='degree'>Degree</label>
-                    <input type='text' id='degree' onChange={this.handleChangeDegree} value={this.state.degree}/>
-                    <label for='name'>School name</label>
-                    <input type='text' id='name' onChange={this.handleChangeName} value={this.state.name}/>
+                    <label for='degree'>Title</label>
+                    <input type='text' id='degree' onChange={this.handleChangeTitle} value={this.state.title} />
+                    <label for='name'>Company</label>
+                    <input type='text' id='name' onChange={this.handleChangeName} value={this.state.name} />
                     <label for='from'>From</label>
-                    <input type='text' id='from' placeholder='YYYY' onChange={this.handleChangeFrom} value={this.state.from}/>
+                    <input type='text' id='from' placeholder='YYYY' onChange={this.handleChangeFrom} value={this.state.from} />
                     <label for='to'>To</label>
                     <small>Leave blank if ongoing</small>
-                    <input type='text' id='to' placeholder='YYYY' onChange={this.handleChangeTo} value={this.state.to}/>
+                    <input type='text' id='to' placeholder='YYYY' onChange={this.handleChangeTo} value={this.state.to} />
+                    <label for='responsib'>Responsibilities</label>
+                    <textarea id='responsib' onChange={this.handleChangeResponsib} placeholder='A short description of your responsibilties in that position' value={this.state.responsib} />
                     <button onClick={this.handleCancel}>Cancel</button>
                     <button type='submit'>Add</button>
                 </form>
@@ -123,4 +138,4 @@ class EducationInfo extends React.Component {
     }
 }
 
-export default EducationInfo;
+export default WorkInfo;

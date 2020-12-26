@@ -1,8 +1,7 @@
-import './App.css';
-import Header from './components/Header/Header';
-import PersonalInfo from './components/PersonalInfo/PersonalInfo';
-import WorkInfo from './components/WorkInfo/WorkInfo'
-import EducationInfo from './components/EducationInfo/EducationInfo';
+import Header from './components/Header';
+import PersonalInfo from './components/PersonalInfo';
+import WorkInfo from './components/WorkInfo'
+import EducationInfo from './components/EducationInfo';
 
 function App() {
   return (

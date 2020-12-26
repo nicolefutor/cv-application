@@ -1,5 +1,4 @@
-import './PersonalInfo.css';
-import BasicInput from '../BasicInput/BasicInput'; 
+import BasicInput from './BasicInput'; 
 
 function PersonalInfo() {
     return(

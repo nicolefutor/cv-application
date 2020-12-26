@@ -1,5 +1,4 @@
 import React from 'react';
-import './BasicInput.css'
 
 class BasicInput extends React.Component {
     constructor(props) {
