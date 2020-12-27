@@ -130,18 +130,18 @@ class WorkInfo extends React.Component {
         return(
             <div>
                 <h2 className='text-3xl mb-1'>Work Experience</h2>
-                <div className='p-4 bg-gray-700 inline-block rounded-lg min-w-1/2'>
+                <div className='p-4 bg-gray-700 inline-block rounded-lg md:min-w-1/2 min-w-3/4'>
                     <ul>{itemList}</ul>
                     <button className='mr-2 bg-white shadow-md px-2 py-1' onClick={this.showForm} ref={this.buttonRef}>Add</button>
                     <form ref={this.formRef} className='hidden space-y-3 bg-gray-300 rounded-lg p-2' onSubmit={this.handleSubmit}>
                         <label htmlFor='degree'>Title</label>
-                        <input className='mr-2' type='text' id='degree' onChange={this.handleChangeTitle} value={this.state.title} /><br/>
+                        <input className='mx-2' type='text' id='degree' onChange={this.handleChangeTitle} value={this.state.title} /><br/>
                         <label htmlFor='name'>Company</label>
-                        <input className='mr-2' type='text' id='name' onChange={this.handleChangeName} value={this.state.name} /><br/>
+                        <input className='mx-2' type='text' id='name' onChange={this.handleChangeName} value={this.state.name} /><br/>
                         <label htmlFor='from'>From</label>
-                        <input className='mr-2' type='text' id='from' placeholder='YYYY' onChange={this.handleChangeFrom} value={this.state.from} />
+                        <input className='mx-2' type='text' id='from' placeholder='YYYY' onChange={this.handleChangeFrom} value={this.state.from} />
                         <label htmlFor='to'>To</label>
-                        <input className='mr-2 w-52' type='text' id='to' placeholder='YYYY, Leave blank if ongoing' onChange={this.handleChangeTo} value={this.state.to} /><br/>
+                        <input className='mx-2 w-52' type='text' id='to' placeholder='YYYY, Leave blank if ongoing' onChange={this.handleChangeTo} value={this.state.to} /><br/>
                         <label htmlFor='responsib'>Responsibilities</label><br/>
                         <textarea className='w-full' id='responsib' onChange={this.handleChangeResponsib} placeholder='A short description of your responsibilties in that position' value={this.state.responsib} /><br/>
                         <button className='mr-2 bg-white shadow-md px-2 py-1' onClick={this.handleCancel}>Cancel</button>

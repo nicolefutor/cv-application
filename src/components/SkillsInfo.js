@@ -42,7 +42,7 @@ const SkillsInfo = () => {
     return (
         <div>
             <h2 className='text-3xl mb-1'>Skills</h2>
-            <div className='bg-gray-700 inline-block rounded-lg p-4 min-w-1/2'>
+            <div className='bg-gray-700 inline-block rounded-lg p-4 md:min-w-1/2 min-w-3/4'>
                 {list}
                 <button className='mr-2 bg-white shadow-md px-2 py-1' onClick={handleClick} ref={buttonRef}>Add</button>
                 <form onSubmit={handleSubmit} ref={formRef} className='hidden'>
