@@ -109,28 +109,21 @@ class WorkInfo extends React.Component {
     }
 
     render() {
-        const itemList = this.state.items.map((obj) => {
-            if(obj.title) {
-                return (
-                    <li className='bg-gray-300 rounded-lg mb-3 p-2' key={uniqid()}>
-                        <div>
-                            <h3 className='text-xl inline-block'>{obj.title}</h3>
-                            <button className='mx-2 bg-white shadow-md px-2 py-0 float-right text-red-600' onClick={this.handleDelete}>x</button>
-                            <p className='italic'>{obj.name} / {obj.from}-{obj.to}</p>
-                            {/*Line below splits tasks in textarea into list based on newlines */}
-                            <ul className='list-disc list-inside'>{obj.responsib.split('\n').map((item) => <li key={uniqid()}>{item}</li>)}</ul>
-                        </div>
-                    </li>
-                )
-            }
-            else {
-                return '';
-            }
-        })
+        const itemList = this.state.items.map((obj) => 
+            <li className='bg-gray-300 rounded-lg mb-3 p-2' key={uniqid()}>
+                <div>
+                    <h3 className='text-xl inline-block'>{obj.title}</h3>
+                    <button className='mx-2 bg-white shadow-md px-2 py-0 float-right text-red-600' onClick={this.handleDelete}>x</button>
+                    <p className='italic'>{obj.name} / {obj.from}-{obj.to}</p>
+                    {/*Line below splits tasks in textarea into list based on newlines */}
+                    <ul className='list-disc list-inside'>{obj.responsib.split('\n').map((item) => <li key={uniqid()}>{item}</li>)}</ul>
+                </div>
+            </li>
+        )
         return(
             <div>
                 <h2 className='text-3xl mb-1'>Work Experience</h2>
-                <div className='p-4 bg-gray-700 inline-block rounded-lg md:min-w-1/2 min-w-3/4'>
+                <div className='p-4 bg-gray-700 inline-block rounded-lg md:min-w-1/2 md:max-w-3/4 min-w-3/4'>
                     <ul>{itemList}</ul>
                     <button className='mr-2 bg-white shadow-md px-2 py-1' onClick={this.showForm} ref={this.buttonRef}>Add</button>
                     <form ref={this.formRef} className='hidden space-y-3 bg-gray-300 rounded-lg p-2' onSubmit={this.handleSubmit}>
@@ -144,7 +137,7 @@ class WorkInfo extends React.Component {
                         <input className='mx-2 w-52' type='text' id='to' placeholder='YYYY, Leave blank if ongoing' onChange={this.handleChangeTo} value={this.state.to} /><br/>
                         <label htmlFor='responsib'>Responsibilities</label><br/>
                         <textarea className='w-full' id='responsib' onChange={this.handleChangeResponsib} placeholder='A short description of your responsibilties in that position' value={this.state.responsib} /><br/>
-                        <button className='mr-2 bg-white shadow-md px-2 py-1' onClick={this.handleCancel}>Cancel</button>
+                        <button className='mr-2 bg-white shadow-md px-2 py-1' onClick={this.handleCancel} type='button'>Cancel</button>
                         <button className='mr-2 bg-white shadow-md px-2 py-1' type='submit'>Add</button>
                     </form>
                 </div>
