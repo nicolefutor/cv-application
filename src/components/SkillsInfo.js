@@ -37,17 +37,20 @@ const SkillsInfo = () => {
         setSkills(skills.filter((item, i) => i !== index));
     }
 
-    const skillsList = skills.map((item) => (item) ? <li key={uniqid()}>{item}<button onClick={handeDelete}>x</button></li> : '');
+    const skillsList = skills.map((item) => (item) ? <li className='my-1' key={uniqid()}>{item}<button className='mx-2 bg-white shadow-md px-2 py-0 float-right text-red-600' onClick={handeDelete}>x</button></li> : '');
+    const list = skills===[] ? <ul className='bg-gray-300 p-2 rounded mb-3 list-inside list-disc'>{skillsList}</ul> : ''; 
     return (
         <div>
-            <h2>Skills</h2>
-            <ul>{skillsList}</ul>
-            <button onClick={handleClick} ref={buttonRef}>Add</button>
-            <form onSubmit={handleSubmit} ref={formRef} className='hidden'>
-                <input type='text' onChange={handleChange} value={input} />
-                <button onClick={handleCancel}>Cancel</button>
-                <button type='submit'>Add</button>
-            </form>
+            <h2 className='text-3xl mb-1'>Skills</h2>
+            <div className='bg-gray-700 inline-block rounded-lg p-4 min-w-1/2'>
+                {list}
+                <button className='mr-2 bg-white shadow-md px-2 py-1' onClick={handleClick} ref={buttonRef}>Add</button>
+                <form onSubmit={handleSubmit} ref={formRef} className='hidden'>
+                    <input type='text' onChange={handleChange} value={input} />
+                    <button className='mx-2 bg-white shadow-md px-2 py-1' onClick={handleCancel}>Cancel</button>
+                    <button className='mr-2 bg-white shadow-md px-2 py-1' type='submit'>Add</button>
+                </form>
+            </div>
         </div>
     );
 }

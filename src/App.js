@@ -6,12 +6,16 @@ import SkillsInfo from './components/SkillsInfo';
 
 function App() {
   return (
-    <div className="App">
+    <div className="bg-gray-700 min-h-screen m-0 p-3">
       <Header />
-      <PersonalInfo />
-      <WorkInfo />
-      <EducationInfo />
-      <SkillsInfo />
+      <div className='bg-black rounded-lg p-0 m-3 transform translate-y-2'>
+        <div className='bg-gray-300 m-2 ml-1  rounded-lg transform -translate-x-4 -translate-y-4 p-4 space-y-4'>
+          <PersonalInfo />
+          <WorkInfo />
+          <EducationInfo />
+          <SkillsInfo />
+        </div>
+      </div>
     </div>
   );
 }
