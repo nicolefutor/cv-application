@@ -31,17 +31,22 @@ const SkillsInfo = () => {
         setInput('');
     }
 
+    const handeDelete = (e) => {
+        const skill = e.target.parentElement.textContent.replace('x', '');
+        const index = skills.indexOf(skill);
+        setSkills(skills.filter((item, i) => i !== index));
+    }
+
+    const skillsList = skills.map((item) => (item) ? <li key={uniqid()}>{item}<button onClick={handeDelete}>x</button></li> : '');
     return (
         <div>
             <h2>Skills</h2>
-            <ul>
-                {skills.map((item) => <li key={uniqid()}>{item}</li>)}
-            </ul>
+            <ul>{skillsList}</ul>
             <button onClick={handleClick} ref={buttonRef}>Add</button>
             <form onSubmit={handleSubmit} ref={formRef} className='hidden'>
                 <input type='text' onChange={handleChange} value={input} />
-                <button type='submit'>Add</button>
                 <button onClick={handleCancel}>Cancel</button>
+                <button type='submit'>Add</button>
             </form>
         </div>
     );

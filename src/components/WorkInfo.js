@@ -22,6 +22,7 @@ class WorkInfo extends React.Component {
         this.handleChangeResponsib = this.handleChangeResponsib.bind(this);
         this.handleCancel = this.handleCancel.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
 
         this.formRef = React.createRef();
         this.buttonRef = React.createRef();
@@ -64,6 +65,19 @@ class WorkInfo extends React.Component {
         });
     }
 
+    handleDelete(e) {
+        const item = e.target.parentElement.firstChild.textContent;
+        let index;
+        for (let i = 0; i < this.state.items.length; i++) {
+            if(this.state.items[i].title === item) {
+                index = i;
+            }
+        }
+        this.setState({
+            items: this.state.items.filter((x, i) => i !== index)
+        });
+    }
+
     handleChangeTitle(e) {
         this.setState({
             title: e.target.value
@@ -101,6 +115,7 @@ class WorkInfo extends React.Component {
                     <li key={uniqid()}>
                         <div>
                             <h3>{obj.title}</h3>
+                            <button onClick={this.handleDelete}>x</button>
                             <p>{obj.name}</p>
                             <p>{obj.from}-{obj.to}</p>
                             {/*Line below splits tasks in textarea into list based on newlines */}
@@ -130,8 +145,8 @@ class WorkInfo extends React.Component {
                     <input type='text' id='to' placeholder='YYYY' onChange={this.handleChangeTo} value={this.state.to} />
                     <label htmlFor='responsib'>Responsibilities</label>
                     <textarea id='responsib' onChange={this.handleChangeResponsib} placeholder='A short description of your responsibilties in that position' value={this.state.responsib} />
-                    <button type='submit'>Add</button>
                     <button onClick={this.handleCancel}>Cancel</button>
+                    <button type='submit'>Add</button>
                 </form>
             </div>
         );

@@ -20,6 +20,7 @@ class EducationInfo extends React.Component {
         this.handleChangeTo = this.handleChangeTo.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleCancel = this.handleCancel.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
 
         this.formRef = React.createRef();
         this.buttonRef = React.createRef();
@@ -59,6 +60,19 @@ class EducationInfo extends React.Component {
         });
     }
 
+    handleDelete(e) {
+        const item = e.target.parentElement.firstChild.textContent;
+        let index;
+        for (let i = 0; i < this.state.items.length; i++) {
+            if(this.state.items[i].degree === item) {
+                index = i;
+            }
+        }
+        this.setState({
+            items: this.state.items.filter((x, i) => i !== index)
+        });
+    }
+
     handleChangeDegree(e) {
         this.setState({
             degree: e.target.value
@@ -90,6 +104,7 @@ class EducationInfo extends React.Component {
                     <li key={uniqid()}>
                         <div>
                             <h3>{obj.degree}</h3>
+                            <button onClick={this.handleDelete}>x</button>
                             <p>{obj.name}</p>
                             <p>{obj.from}-{obj.to}</p>
                         </div>
@@ -115,8 +130,8 @@ class EducationInfo extends React.Component {
                     <label htmlFor='to'>To</label>
                     <small>Leave blank if ongoing</small>
                     <input type='text' id='to' placeholder='YYYY' onChange={this.handleChangeTo} value={this.state.to}/>
-                    <button type='submit'>Add</button>
                     <button onClick={this.handleCancel}>Cancel</button>
+                    <button type='submit'>Add</button>
                 </form>
             </div>
         );
