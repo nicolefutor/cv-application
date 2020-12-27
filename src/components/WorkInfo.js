@@ -116,7 +116,7 @@ class WorkInfo extends React.Component {
                     <button className='mx-2 bg-white shadow-md px-2 py-0 float-right text-red-600' onClick={this.handleDelete}>x</button>
                     <p className='italic'>{obj.name} / {obj.from}-{obj.to}</p>
                     {/*Line below splits tasks in textarea into list based on newlines */}
-                    <ul className='list-disc list-inside'>{obj.responsib.split('\n').map((item) => <li key={uniqid()}>{item}</li>)}</ul>
+                    <ul className='list-disc list-inside'>{obj.responsib.split('\n').map((item) => <li className=' break-words' key={uniqid()}>{item}</li>)}</ul>
                 </div>
             </li>
         )

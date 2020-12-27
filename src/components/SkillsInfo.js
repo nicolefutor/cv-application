@@ -38,7 +38,7 @@ const SkillsInfo = () => {
         setSkills(skills.filter((item, i) => i !== index));
     }
 
-    const skillsList = skills.map((item) => <li className='my-1' key={uniqid()}>{item}<button className='mx-2 bg-white shadow-md px-2 py-0 float-right text-red-600' onClick={handeDelete}>x</button></li>);
+    const skillsList = skills.map((item) => <li className='my-1 break-words' key={uniqid()}>{item}<button className='mx-2 bg-white shadow-md px-2 py-0 float-right text-red-600' onClick={handeDelete}>x</button></li>);
     const list = skills.length!==0 ? (<ul className='bg-gray-300 p-2 rounded mb-3 list-inside list-disc'>{skillsList}</ul>) : ''; 
     return (
         <div>
