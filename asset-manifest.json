@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/nicolefutor.github.io/cv-application/static/css/main.5908d779.chunk.css",
-    "main.js": "/nicolefutor.github.io/cv-application/static/js/main.f87e0259.chunk.js",
-    "main.js.map": "/nicolefutor.github.io/cv-application/static/js/main.f87e0259.chunk.js.map",
-    "runtime-main.js": "/nicolefutor.github.io/cv-application/static/js/runtime-main.c5f66008.js",
-    "runtime-main.js.map": "/nicolefutor.github.io/cv-application/static/js/runtime-main.c5f66008.js.map",
-    "static/js/2.93bb78cd.chunk.js": "/nicolefutor.github.io/cv-application/static/js/2.93bb78cd.chunk.js",
-    "static/js/2.93bb78cd.chunk.js.map": "/nicolefutor.github.io/cv-application/static/js/2.93bb78cd.chunk.js.map",
-    "index.html": "/nicolefutor.github.io/cv-application/index.html",
-    "static/css/main.5908d779.chunk.css.map": "/nicolefutor.github.io/cv-application/static/css/main.5908d779.chunk.css.map",
-    "static/js/2.93bb78cd.chunk.js.LICENSE.txt": "/nicolefutor.github.io/cv-application/static/js/2.93bb78cd.chunk.js.LICENSE.txt"
+    "main.css": "./static/css/main.5908d779.chunk.css",
+    "main.js": "./static/js/main.f87e0259.chunk.js",
+    "main.js.map": "./static/js/main.f87e0259.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.fad1f732.js",
+    "runtime-main.js.map": "./static/js/runtime-main.fad1f732.js.map",
+    "static/js/2.93bb78cd.chunk.js": "./static/js/2.93bb78cd.chunk.js",
+    "static/js/2.93bb78cd.chunk.js.map": "./static/js/2.93bb78cd.chunk.js.map",
+    "index.html": "./index.html",
+    "static/css/main.5908d779.chunk.css.map": "./static/css/main.5908d779.chunk.css.map",
+    "static/js/2.93bb78cd.chunk.js.LICENSE.txt": "./static/js/2.93bb78cd.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.c5f66008.js",
+    "static/js/runtime-main.fad1f732.js",
     "static/js/2.93bb78cd.chunk.js",
     "static/css/main.5908d779.chunk.css",
     "static/js/main.f87e0259.chunk.js"
